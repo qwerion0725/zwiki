@@ -87,19 +87,17 @@ def home():
     return render_template('home.html')
 
 
-@app.route('/index/')
-@showprotect
-def index():
-    pages = wiki.index()
-    return render_template('index.html', pages=pages)
-
-
 @app.route('/<path:url>/')
 @showprotect
 def display(url):
     page = wiki.get_or_404(url)
     return render_template('page.html', page=page)
-
+"""
+@app.route('/index/')
+@showprotect
+def index():
+    pages = wiki.index()
+    return render_template('index.html', pages=pages)
 
 @app.route('/create/', methods=['GET', 'POST'])
 @protect
@@ -289,7 +287,7 @@ def user_admin(user_id):
 @protect
 def user_delete(user_id):
     pass
-
+"""
 
 @app.errorhandler(404)
 def page_not_found(e):
