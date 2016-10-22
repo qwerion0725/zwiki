@@ -154,7 +154,7 @@ class Wiki(object):
         os.remove(path)
         return True
 
-    def index(self, attr=None):
+    def index(self, except_home=True, attr=None):
         def _walk(directory, path_prefix=()):
             if not os.path.isdir(directory):
                 os.makedirs(directory)
@@ -172,7 +172,7 @@ class Wiki(object):
                     if attr:
                         pages[getattr(page, attr)] = page
                     else:
-                        if name != "home.md":
+                        if name != "home.md" or not except_home:
                             pages.append(Page(fullname, url.replace('\\', '/')))
         if attr:
             pages = {}

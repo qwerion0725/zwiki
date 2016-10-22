@@ -25,10 +25,12 @@
   <ul>
   </ul>
 {% endif %}
-<h3>目录</h3>
-<ul class="nav nav-tabs nav-stacked">
-	<li><a href="#">Edit</a></li>
-  <li><a href="#">Move</a></li>
-  <li><a href="#confirmDelete" data-toggle="modal" class="text-error">Delete</a></li>
-</ul>
+{% if pages %}
+    <h3>目录</h3>
+    <ul class="nav nav-tabs nav-stacked">
+        {% for p in pages %}
+            <li><a href="{{ url_for('display', url=p.url) }}">{{ p.title.decode('utf-8') }}</a></li>
+        {% endfor %}
+    </ul>
+{% endif %}
 {% endblock sidebar %}

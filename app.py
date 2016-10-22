@@ -91,7 +91,8 @@ def home():
 @showprotect
 def display(url):
     page = wiki.get_or_404(url)
-    return render_template('page.html', page=page)
+    pages = wiki.index(except_home=False)
+    return render_template('page.html', page=page, pages=pages)
 """
 @app.route('/index/')
 @showprotect
