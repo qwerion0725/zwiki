@@ -56,6 +56,6 @@ def save_uploadfile_to_backup(filename):
         if not os.path.isdir(backupfilepath):
             os.makedirs(backupfilepath)
         shutil.copy(filename,  backupfilepath)
-    except Exception, e:
-        print e
+    except Exception as e:
+        print(e)
 

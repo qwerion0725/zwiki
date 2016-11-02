@@ -52,7 +52,7 @@ class Page(object):
 
     def load(self):
         with open(self.path, 'rU') as f:
-            self.content = f.read().decode('utf-8')
+            self.content = f.read()
 
     def render(self):
         processed = Processors(self.content)
